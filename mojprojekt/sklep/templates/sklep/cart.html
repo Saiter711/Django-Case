@@ -1,0 +1,102 @@
+{% extends "sklep/base.html"%}
+{%block content%}
+{%if prolist%}
+    <table width = 110%, table-layout = auto>
+        <font size="4">
+<tr>
+<td>
+    <table>
+        <thead>
+            <tr>
+                <td>Nazwa produktu</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in prolist %}
+                <tr>
+                    <td>{{x}}</td>
+                </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</td>
+<td>
+    <table>
+        <thead>
+            <tr>
+                <td>Ilość</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in amlist %}
+                <tr>
+                    <td>{{x}}</td>
+                </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</td>
+    <td>
+    <table>
+        <thead>
+            <tr>
+                <td>Usuń produkt</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in prolist %}
+                <tr>
+                    <td>
+                        <form action = "/cart/remove/" method ="post">
+                        {%csrf_token%}
+                        <input type = "hidden" name="item_name" value="{{x}}">
+                        <input type="submit" value = "Usuń z koszyka">
+                        </form>
+
+                    </td>
+                </tr>
+            {%endfor%}
+
+
+        </tbody>
+    </table>
+</td>
+        <td>
+    <table>
+        <thead>
+            <tr>
+                <td>Zmień ilość</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in prolist %}
+                <tr>
+                    <td>
+                        <form action = "/cart/modify/" method ="post">
+                        {%csrf_token%}
+                            <input type = "text" name = "value">
+                        <input type = "hidden" name="item_name" value ="{{x}}">
+                        <input type="submit" value = "Zmień">
+                        </form>
+                    </td>
+                </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</td>
+</tr>
+
+</table>
+
+<h3>
+    Suma produktów w koszyku: {{sum}}<br>
+</h3>
+<h2><a href = "/products/">Lista produktów</a></h2>
+<h2><a href = "/order/">Złóż zamówienie</a></h2>
+{%else%}
+<h1> Twój koszyk jest pusty!</h1><br> <br><h2>Zapraszamy do zapoznania się z naszą ofertą:</h2>
+
+<h2><a href = "/products/">Lista produktów</a></h2>
+{%endif%}
+<h2><a href = "/"><br><br>Powrót do menu głównego</a></h2>
+{% endblock %}

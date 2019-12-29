@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends "sklep\base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% block content %}
+    <h2>Nazwa produktu: <br></h2>
+    <h1>{{products.name}} </h1>
+           <h3>Cena: {{products.price}}</h3>
+
+           <h3>Producent: {{products.producent}}</h3>
+
+           <h3>Z roku: {{products.rok}}</h3>
+
+            <h3>Średnia ocena produktu: {{avg}}</h3>
+
+    <form action = "/cart/add/" method ="post">
+        {%csrf_token%}
+        <input type = "hidden" name="item_id" value="{{products.id}}">
+        <input type="submit" value = "Dodaj do koszyka">
+    </form>
+    <br>
+
+    <h3><a href = "/products/{{products.id}}/comment">Dodaj komentarz!</a></h3>
+    <h4><a href = "/products/{{products.id}}/comments">Kliknij tu, aby zobaczyć komentarze!</a></h4>
+    <h4><a href = "/products">Powrót do głównej</a></h4>
+    {% endblock %}
+</body>
+</html>

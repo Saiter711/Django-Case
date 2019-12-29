@@ -1,0 +1,21 @@
+{% extends "sklep/base.html" %}
+
+{%block content%}
+    <h2>Złóż zażalenie tutaj:</h2>
+    <form action = "/complaint/" method = "post">
+        {% csrf_token %}
+        {%for field in form%}
+        <div>
+            <div>
+            <label>{{field.label}}</label><br>
+            </div>
+            <div>
+                {{field}}<br>
+            </div>
+            <br>
+        </div>
+        {%endfor%}
+        <br>
+        <input type ="submit" value ="Złóż zażalenie">
+    </form>
+{%endblock%}

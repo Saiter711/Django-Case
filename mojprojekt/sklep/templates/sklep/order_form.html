@@ -1,0 +1,23 @@
+{% extends "sklep/base.html" %}
+
+{%block content%}
+    <h2>Złóż zamówienie</h2>
+
+
+
+    <form action = "/order/" method = "post">
+        {% csrf_token %}
+         {% for field in form %}
+
+        <div>
+            <label>{{ field.label }} : </label>
+            <div>
+                {{ field }}
+            </div>
+        </div>
+        <br>
+        {% endfor %}
+        <br>
+        <input type ="submit" value ="Złóż zamowienie">
+    </form>
+{%endblock%}

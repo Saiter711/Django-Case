@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends "sklep\base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zapachy</title>
+        <style>
+    body{background-color:red};
+    </style>
+</head>
+<body>
+    {% block content %}
+    <h1>Witaj w sklepie AchyZapachy</h1>
+    <h2>Menu: </h2>
+
+            <h2><a href = /products>Przejdź do listy produktów </a></h2>
+
+            <h2> <a href="/cart">Koszyk</a></h2>
+
+            <h2> <a href="/complaint">Złóż zażalenie</a></h2>
+
+            <h2> <a href="/admin">Przejdź do panelu admina</a></h2>
+    {% endblock %}
+</body>
+</html>

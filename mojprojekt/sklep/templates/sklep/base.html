@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}
+        Sklep Zapachy
+        {% endblock %}
+    </title>
+       <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <style>
+     .lista{
+         list-style:none;
+
+         text-align:center;
+
+     }
+    .content{
+
+        text-align:center;
+        padding-left:15px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 60%;
+        width: 50%;
+        margin: -15% 0 0 -25%;
+        border:solid 3px black;
+        background-color: rgba(255,218,185,0.5);
+        display:flex;
+        flex-direction:column;
+
+    }
+    body{
+        background-image: url('tlo.png');
+        align-content:center;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        font-family: 'Lobster', cursive;
+
+
+    }
+
+
+    </style>
+</head>
+<body>
+<div class = content>
+    <div>
+    {% block content %}
+    {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

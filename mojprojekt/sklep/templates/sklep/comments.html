@@ -1,0 +1,22 @@
+{% extends "sklep/base.html" %}
+
+    {% block content %}
+{%if comments%}
+    <h1>Komentarze do produktu:</h1>
+    {%for comment in comments%}
+
+    <h3>
+        Nickname: {{comment.nickname}}   <br>Ocena: {{comment.grade}}
+    </h3>
+    <h4>
+        Komentarz: <br>{{comment.comment}}
+    </h4>
+{%endfor%}
+{%else%}
+    <h2>Brak komentarzy do produktu!</h2>
+<h3>
+    <br> <a href = /products/{{product_id}}/comment> Dodaj komentarz! </a>
+</h3>
+
+{%endif%}
+    {% endblock %}

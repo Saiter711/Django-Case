@@ -1,0 +1,59 @@
+{% extends "sklep/base.html" %}
+<html>
+<head>
+
+</head>
+<body>
+    {% block content %}
+    <h2>Szczegóły zamówienia:</h2>
+    <font size="5">
+    <table width = 70%, cellpadding="20px">
+<tr>
+<td>
+    <table>
+        <thead>
+            <tr>
+                <td>Nazwa produktu</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in prolist %}
+                <tr>
+                    <td>{{x}}</td>
+                </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</td>
+<td>
+    <table>
+        <thead>
+            <tr>
+                <td>Ilość</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in amlist %}
+                <tr>
+                    <td>{{x}}</td>
+                </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</td>
+</tr>
+</table>
+        {% if discount %}
+    <h4>
+        Zastosowano kupon -{{discount}}%!
+    </h4>
+        {% endif %}
+    <h3>
+        Cena całkowita: {{total}}
+    </h3>
+        <h3>
+            <a href ="/">Powrót do sklepu</a>
+        </h3>
+    {% endblock %}
+</body>
+</html>

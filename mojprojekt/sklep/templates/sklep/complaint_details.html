@@ -1,0 +1,17 @@
+{% extends "sklep/base.html" %}
+<html>
+<head>
+
+</head>
+<body>
+    {% block content %}
+    <h1>Szczegóły zażalenia:</h1>
+    <h2>
+        Autor zażalenia: {{complaint.name}}
+    </h2>
+    <h3>
+        Wiadomość: <br> <br>{{complaint.message}}
+    </h3>
+    {% endblock %}
+</body>
+</html>

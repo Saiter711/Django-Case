@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends "sklep\base.html" %}
+<html lang="en">
+<head>
+</head>
+<body>
+    {% block content %}
+    <h1>Produkty w naszym sklepie:</h1>
+    {% for product in products %}
+            <h2><a href ={{product.id}}>  {{product.name}}    </a></h2>
+            <h4>{{product.desc}}</h4>
+    {% endfor %}
+    <h3>
+        <a href = '/'> <br><br>Powrót do menu</a>
+    </h3>
+    {% endblock %}
+</body>
+</html>
